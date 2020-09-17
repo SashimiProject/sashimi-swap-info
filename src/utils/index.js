@@ -53,6 +53,7 @@ export function getTimeframe(timeWindow) {
   return utcStartTime
 }
 
+// TODO: sashimi
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {
     return (
@@ -71,6 +72,7 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
   }
 }
 
+// TODO: sashimi
 export function getSwapLink(token0Address, token1Address = null) {
   if (!token1Address) {
     return `https://uniswap.exchange/swap?inputCurrency=${token0Address}`

@@ -45,7 +45,7 @@ const DashGrid = styled.div`
   display: grid;
   grid-gap: 1em;
   grid-template-columns: 5px 0.5fr 1fr 1fr;
-  grid-template-areas: 'number name uniswap return';
+  grid-template-areas: 'number name sashimi return';
   align-items: flex-start;
   padding: 20px 0;
 
@@ -62,17 +62,17 @@ const DashGrid = styled.div`
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: 35px 2.5fr 1fr 1fr;
-    grid-template-areas: 'number name uniswap return';
+    grid-template-areas: 'number name sashimi return';
   }
 
   @media screen and (max-width: 740px) {
     grid-template-columns: 2.5fr 1fr 1fr;
-    grid-template-areas: 'name uniswap return';
+    grid-template-areas: 'name sashimi return';
   }
 
   @media screen and (max-width: 500px) {
     grid-template-columns: 2.5fr 1fr;
-    grid-template-areas: 'name uniswap';
+    grid-template-areas: 'name sashimi';
   }
 `
 
@@ -174,7 +174,7 @@ function PositionList({ positions }) {
             </RowFixed>
           </AutoColumn>
         </DataText>
-        <DataText area="uniswap">
+        <DataText area="sashimi">
           <AutoColumn gap="12px" justify="flex-end">
             <TYPE.main>{formattedNum(valueUSD, true, true)}</TYPE.main>
             <AutoColumn gap="4px" justify="flex-end">
@@ -296,7 +296,7 @@ function PositionList({ positions }) {
         </Flex>
         <Flex alignItems="center" justifyContent="flexEnd">
           <ClickableText
-            area="uniswap"
+            area="sashimi"
             onClick={e => {
               setSortedColumn(SORT_FIELD.VALUE)
               setSortDirection(sortedColumn !== SORT_FIELD.VALUE ? true : !sortDirection)

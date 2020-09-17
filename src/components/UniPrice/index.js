@@ -23,6 +23,7 @@ function formatPercent(rawPercent) {
   } else return parseFloat(rawPercent * 100).toFixed(0) + '%'
 }
 
+// TODO: sashimi pair address
 export default function UniPrice() {
   const daiPair = usePairData('0xa478c2975ab1ea89e8196811f51a7b7ade33eb11')
   const usdcPair = usePairData('0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc')
