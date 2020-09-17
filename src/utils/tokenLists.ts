@@ -1,4 +1,5 @@
 import { TokenList } from '@uniswap/token-lists'
+// TODO: sashimi Token list
 import schema from '@uniswap/token-lists/src/tokenlist.schema.json'
 import Ajv from 'ajv'
 

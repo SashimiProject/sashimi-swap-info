@@ -9,7 +9,7 @@ const WrappedLink = ({ external, children, ...rest }) => (
   <RebassLink
     target={external ? '_blank' : null}
     rel={external ? 'noopener noreferrer' : null}
-    color="#2f80ed"
+    color="#d45d02"
     {...rest}
   >
     {children}
