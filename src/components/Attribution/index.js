@@ -1,12 +1,13 @@
 import React from 'react'
 
+// todo: change link
 const Attribution = () => (
   <p className="attribution">
-    <a href="https://github.com/Uniswap/uniswap-info" rel="noopener noreferrer" target="_blank">
+    <a href="https://github.com/SashimiProject/sashimis-swap-info" rel="noopener noreferrer" target="_blank">
       Github
     </a>{' '}
     |{' '}
-    <a href="https://uniswap.io" rel="noopener noreferrer" target="_blank">
+    <a href="https://app.sashimi.cool" rel="noopener noreferrer" target="_blank">
       Sashimi
     </a>{' '}
     |{' '}

@@ -78,6 +78,7 @@ const GlobalChart = ({ display }) => {
 
   return chartDataFiltered ? (
     <>
+      {/*todo: 确认主题颜色*/}
       {below800 && (
         <DropdownSelect options={CHART_VIEW} active={chartView} setActive={setChartView} color={'#D45D02'} />
       )}

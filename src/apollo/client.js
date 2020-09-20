@@ -5,7 +5,7 @@ import { HttpLink } from 'apollo-link-http'
 // TODO: sashimi subgraph
 export const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://api.thegraph.com/subgraphs/name/ianlapham/uniswapv2'
+    uri: 'https://api.thegraph.com/subgraphs/name/sashimiproject/swap'
   }),
   cache: new InMemoryCache(),
   shouldBatch: true
