@@ -1,5 +1,5 @@
 // todo: factory address
-export const FACTORY_ADDRESS = '0xf2702ca487b034c7aa5a3a860c728a91992239ae'
+export const FACTORY_ADDRESS = '0x391e911FB596FE246995d4aCBAF2377D5757327e'
 
 export const BUNDLE_ID = '1'
 
@@ -32,3 +32,6 @@ export const PAIR_BLACKLIST = ['0xb6a741f37d6e455ebcc9f17e2c16d0586c3f57a5']
  * For tokens that cause erros on fee calculations
  */
 export const FEE_WARNING_TOKENS = ['0xd46ba6d942050d489dbd938a2c909a5d5039a161']
+
+// todo: ether scan prefix
+export const ETHER_SCAN_PREFIX = 'https://kovan.etherscan.io';

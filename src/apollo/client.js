@@ -28,8 +28,12 @@ export const v1Client = new ApolloClient({
 })
 
 export const blockClient = new ApolloClient({
+  // todo: 更改为kovan或者主网链接
   link: new HttpLink({
-    uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
+    // 主网链接
+    // uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
+    // kovan链接
+    uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/kovan-blocks'
   }),
   cache: new InMemoryCache()
 })

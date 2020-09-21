@@ -15,6 +15,7 @@ import { Divider, EmptyCard } from '..'
 import DropdownSelect from '../DropdownSelect'
 import FormattedName from '../FormattedName'
 import { TYPE } from '../../Theme'
+import { ETHER_SCAN_PREFIX } from '../../constants'
 
 dayjs.extend(utc)
 
@@ -311,7 +312,7 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
         )}
         {!below1080 && (
           <DataText area="account">
-            <Link color={color} external href={'https://etherscan.io/address/' + item.account}>
+            <Link color={color} external href={`${ETHER_SCAN_PREFIX}/address/${item.account}`}>
               {item.account && item.account.slice(0, 6) + '...' + item.account.slice(38, 42)}
             </Link>
           </DataText>

@@ -30,6 +30,7 @@ import { Hover, PageWrapper, ContentWrapper, StyledIcon } from '../components'
 import { PlusCircle, Bookmark } from 'react-feather'
 import FormattedName from '../components/FormattedName'
 import { useListedTokens } from '../contexts/Application'
+import { ETHER_SCAN_PREFIX } from '../constants'
 
 const DashboardWrapper = styled.div`
   width: 100%;
@@ -188,7 +189,7 @@ function TokenPage({ address, history }) {
               style={{ width: 'fit-content' }}
               color={backgroundColor}
               external
-              href={'https://etherscan.io/address/' + address}
+              href={`${ETHER_SCAN_PREFIX}/address/${address}`}
             >
               <Text style={{ marginLeft: '.15rem' }} fontSize={'14px'} fontWeight={400}>
                 ({address.slice(0, 8) + '...' + address.slice(36, 42)})
@@ -373,7 +374,7 @@ function TokenPage({ address, history }) {
                     </AutoRow>
                   </Column>
                   <ButtonLight color={backgroundColor}>
-                    <Link color={backgroundColor} external href={'https://etherscan.io/address/' + address}>
+                    <Link color={backgroundColor} external href={`${ETHER_SCAN_PREFIX}/address/${address}`}>
                       View on Etherscan ↗
                     </Link>
                   </ButtonLight>

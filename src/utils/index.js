@@ -8,7 +8,7 @@ import { GET_BLOCK, GET_BLOCKS, SHARE_VALUE } from '../apollo/queries'
 import { Text } from 'rebass'
 import _Decimal from 'decimal.js-light'
 import toFormat from 'toformat'
-import { timeframeOptions } from '../constants'
+import { ETHER_SCAN_PREFIX, timeframeOptions } from '../constants'
 import Numeral from 'numeral'
 
 // format libraries
@@ -53,20 +53,23 @@ export function getTimeframe(timeWindow) {
   return utcStartTime
 }
 
+const WETH = '0xa050886815cfc52a24b9c4ad044ca199990b6690';
+
 // TODO: sashimi
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {
     return (
       `https://uniswap.exchange/` +
       (remove ? `remove` : `add`) +
-      `/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address}/${'ETH'}`
+        // wrapped eth address
+      `/${token0Address === WETH ? 'ETH' : token0Address}/${'ETH'}`
     )
   } else {
     return (
       `https://uniswap.exchange/` +
       (remove ? `remove` : `add`) +
-      `/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address}/${
-        token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address
+      `/${token0Address === WETH ? 'ETH' : token0Address}/${
+        token1Address === WETH ? 'ETH' : token1Address
       }`
     )
   }
@@ -78,8 +81,8 @@ export function getSwapLink(token0Address, token1Address = null) {
     return `https://uniswap.exchange/swap?inputCurrency=${token0Address}`
   } else {
     return `https://uniswap.exchange/swap?inputCurrency=${
-      token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address
-    }&outputCurrency=${token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address}`
+      token0Address === WETH ? 'ETH' : token0Address
+    }&outputCurrency=${token1Address === WETH ? 'ETH' : token1Address}`
   }
 }
 
@@ -308,10 +311,10 @@ export const setThemeColor = theme => document.documentElement.style.setProperty
 export const Big = number => new BigNumber(number)
 
 export const urls = {
-  showTransaction: tx => `https://etherscan.io/tx/${tx}/`,
-  showAddress: address => `https://www.etherscan.io/address/${address}/`,
-  showToken: address => `https://www.etherscan.io/token/${address}/`,
-  showBlock: block => `https://etherscan.io/block/${block}/`
+  showTransaction: tx => `${ETHER_SCAN_PREFIX}/tx/${tx}/`,
+  showAddress: address => `${ETHER_SCAN_PREFIX}/address/${address}/`,
+  showToken: address => `${ETHER_SCAN_PREFIX}/token/${address}/`,
+  showBlock: block => `${ETHER_SCAN_PREFIX}/block/${block}/`
 }
 
 export const formatTime = unix => {

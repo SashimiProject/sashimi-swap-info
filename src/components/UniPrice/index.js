@@ -25,20 +25,20 @@ function formatPercent(rawPercent) {
 
 // TODO: sashimi pair address
 export default function UniPrice() {
-  // todo: 修改稳定币与WETH pair的地址
-  const daiPair = usePairData('0xa478c2975ab1ea89e8196811f51a7b7ade33eb11')
-  const usdcPair = usePairData('0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc')
-  const usdtPair = usePairData('0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852')
+  // todo: 修改稳定币与WETH pair的地址，注意pair中token的顺序，注意小写
+  const daiPair = usePairData('0x94acc8d46788cad939da7e47f10a9d90c3db5de8')
+  // const usdcPair = usePairData('0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc')
+  const usdtPair = usePairData('0x61bab6ace479859b8131208463fccccb926105bf')
 
   const totalLiquidity = useMemo(() => {
-    return daiPair && usdcPair && usdtPair
-      ? daiPair.trackedReserveUSD + usdcPair.trackedReserveUSD + usdtPair.trackedReserveUSD
+    return daiPair && usdtPair
+      ? daiPair.trackedReserveUSD + usdtPair.trackedReserveUSD
       : 0
-  }, [daiPair, usdcPair, usdtPair])
+  }, [daiPair, usdtPair])
 
   const daiPerEth = daiPair ? parseFloat(daiPair.token0Price).toFixed(2) : '-'
-  const usdcPerEth = usdcPair ? parseFloat(usdcPair.token0Price).toFixed(2) : '-'
-  const usdtPerEth = usdtPair ? parseFloat(usdtPair.token1Price).toFixed(2) : '-'
+  // const usdcPerEth = usdcPair ? parseFloat(usdcPair.token0Price).toFixed(2) : '-'
+  const usdtPerEth = usdtPair ? parseFloat(usdtPair.token0Price).toFixed(2) : '-'
 
   return (
     <PriceCard>
@@ -47,12 +47,6 @@ export default function UniPrice() {
           <TYPE.main>DAI/ETH: {formattedNum(daiPerEth, true)}</TYPE.main>
           <TYPE.light style={{ marginLeft: '10px' }}>
             {daiPair && totalLiquidity ? formatPercent(daiPair.trackedReserveUSD / totalLiquidity) : '-'}
-          </TYPE.light>
-        </RowFixed>
-        <RowFixed>
-          <TYPE.main>USDC/ETH: {formattedNum(usdcPerEth, true)}</TYPE.main>
-          <TYPE.light style={{ marginLeft: '10px' }}>
-            {usdcPair && totalLiquidity ? formatPercent(usdcPair.trackedReserveUSD / totalLiquidity) : '-'}
           </TYPE.light>
         </RowFixed>
         <RowFixed>

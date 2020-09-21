@@ -30,6 +30,7 @@ import { usePathDismissed, useSavedPairs } from '../contexts/LocalStorage'
 import { Bookmark, PlusCircle } from 'react-feather'
 import FormattedName from '../components/FormattedName'
 import { useListedTokens } from '../contexts/Application'
+import { ETHER_SCAN_PREFIX } from '../constants'
 
 const DashboardWrapper = styled.div`
   width: 100%;
@@ -462,7 +463,7 @@ function PairPage({ pairAddress, history }) {
                     </AutoRow>
                   </Column>
                   <ButtonLight color={backgroundColor}>
-                    <Link color={backgroundColor} external href={'https://etherscan.io/address/' + pairAddress}>
+                    <Link color={backgroundColor} external href={`${ETHER_SCAN_PREFIX}/address/${pairAddress}`}>
                       View on Etherscan ↗
                     </Link>
                   </ButtonLight>
