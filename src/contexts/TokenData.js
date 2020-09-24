@@ -489,7 +489,7 @@ const getIntervalTokenData = async (tokenAddress, startTime, interval = 3600, la
     let values = []
     for (var row in result) {
       let timestamp = row.split('t')[1]
-      let derivedETH = parseFloat(result[row]?.derivedETH)
+      let derivedETH = parseFloat(result[row]?.derivedETH || 0)
       if (timestamp) {
         values.push({
           timestamp,
@@ -503,7 +503,7 @@ const getIntervalTokenData = async (tokenAddress, startTime, interval = 3600, la
     for (var brow in result) {
       let timestamp = brow.split('b')[1]
       if (timestamp) {
-        values[index].priceUSD = result[brow].ethPrice * values[index].derivedETH
+        values[index].priceUSD = ((result[brow] || {}).ethPrice ||  0) * values[index].derivedETH
         index += 1
       }
     }
