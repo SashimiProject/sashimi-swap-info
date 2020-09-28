@@ -55,9 +55,9 @@ export function getTimeframe(timeWindow) {
 
 const WETH = '0xa050886815cfc52a24b9c4ad044ca199990b6690';
 
-const EXCHANGE_PREFIX = 'https://app-test.sashimi.cool';
+// todo: sashimi link
+const EXCHANGE_PREFIX = 'https://sashimi.cool/app';
 
-// TODO: sashimi
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {
     return (

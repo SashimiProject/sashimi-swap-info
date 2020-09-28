@@ -1,5 +1,5 @@
 // todo: factory address
-export const FACTORY_ADDRESS = '0x391e911FB596FE246995d4aCBAF2377D5757327e'
+export const FACTORY_ADDRESS = '0x42af4e7b20a1ad97d8cfd7585cad5b50c34d294e'
 
 export const BUNDLE_ID = '1'
 
@@ -14,7 +14,7 @@ export const timeframeOptions = {
 // token list urls to fetch tokens from - use for warnings on tokens and pairs
 export const SUPPORTED_LIST_URLS__NO_ENS = [
   // todo: token list
-  'https://raw.githubusercontent.com/SashimiProject/token-list/kovan/sashimiswap.tokenlist.json'
+  'https://raw.githubusercontent.com/SashimiProject/token-list/master/sashimiswap.tokenlist.json'
 ]
 
 // hide from overview list
@@ -34,4 +34,4 @@ export const PAIR_BLACKLIST = ['0xb6a741f37d6e455ebcc9f17e2c16d0586c3f57a5']
 export const FEE_WARNING_TOKENS = ['0xd46ba6d942050d489dbd938a2c909a5d5039a161']
 
 // todo: ether scan prefix
-export const ETHER_SCAN_PREFIX = 'https://kovan.etherscan.io';
+export const ETHER_SCAN_PREFIX = 'https://etherscan.io';

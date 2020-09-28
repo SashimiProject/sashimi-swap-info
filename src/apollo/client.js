@@ -5,7 +5,7 @@ import { HttpLink } from 'apollo-link-http'
 // TODO: sashimi subgraph
 export const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://api.thegraph.com/subgraphs/name/sashimiproject/swap'
+    uri: 'https://api.thegraph.com/subgraphs/name/sashimiproject/swapinfo'
   }),
   cache: new InMemoryCache(),
   shouldBatch: true
@@ -31,9 +31,9 @@ export const blockClient = new ApolloClient({
   // todo: 更改为kovan或者主网链接
   link: new HttpLink({
     // 主网链接
-    // uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
+    uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
     // kovan链接
-    uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/kovan-blocks'
+    // uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/kovan-blocks'
   }),
   cache: new InMemoryCache()
 })

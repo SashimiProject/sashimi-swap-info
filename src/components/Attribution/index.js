@@ -7,7 +7,7 @@ const Attribution = () => (
       Github
     </a>{' '}
     |{' '}
-    <a href="https://app.sashimi.cool" rel="noopener noreferrer" target="_blank">
+    <a href="https://sashimi.cool/app/" rel="noopener noreferrer" target="_blank">
       Sashimi
     </a>{' '}
     |{' '}
