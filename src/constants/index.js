@@ -1,5 +1,5 @@
 // todo: factory address
-export const FACTORY_ADDRESS = '0x42af4e7b20a1ad97d8cfd7585cad5b50c34d294e'
+export const FACTORY_ADDRESS = '0xf028f723ed1d0fe01cc59973c49298aa95c57472'
 
 export const BUNDLE_ID = '1'
 

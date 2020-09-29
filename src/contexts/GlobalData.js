@@ -613,7 +613,7 @@ export function useGlobalTransactions() {
 export function useEthPrice() {
   const [state, { updateEthPrice }] = useGlobalDataContext()
   const ethPrice = state?.[ETH_PRICE_KEY]
-  const ethPriceOld = state?.['oneDayPrice']
+  const ethPriceOld = state?.oneDayPrice || ethPrice
   useEffect(() => {
     async function checkForEthPrice() {
       if (!ethPrice) {

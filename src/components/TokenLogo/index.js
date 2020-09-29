@@ -67,9 +67,13 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
     )
   }
 
-  const path = `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+  let path = `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
     address
   )}/logo.png`
+
+  if (address?.toLowerCase() === '0xc28e27870558cf22add83540d2126da2e4b464c2') {
+    path = 'https://raw.githubusercontent.com/SashimiProject/token-list/master/assets/SASHIMI.png';
+  }
 
   return (
     <Inline>
