@@ -140,7 +140,7 @@ function PairPage({ pairAddress, history }) {
   // mark if using untracked liquidity
   const [usingTracked, setUsingTracked] = useState(true)
   useEffect(() => {
-    setUsingTracked(!trackedReserveUSD ? false : true)
+    setUsingTracked(!!trackedReserveUSD)
   }, [trackedReserveUSD])
 
   // volume	  // volume
@@ -154,7 +154,7 @@ function PairPage({ pairAddress, history }) {
   // mark if using untracked volume
   const [usingUtVolume, setUsingUtVolume] = useState(false)
   useEffect(() => {
-    setUsingUtVolume(oneDayVolumeUSD === 0 ? true : false)
+    setUsingUtVolume(oneDayVolumeUSD === 0)
   }, [oneDayVolumeUSD])
 
   const volumeChange = formattedPercent(!usingUtVolume ? volumeChangeUSD : volumeChangeUntracked)
