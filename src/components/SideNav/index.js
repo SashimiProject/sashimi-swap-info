@@ -186,7 +186,7 @@ function SideNav({ history }) {
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href="https://discord.gg/zTdmUkb" target="_blank">
+              <Link href="https://discord.com/invite/mSEc2uv" target="_blank">
                 Discord
               </Link>
             </HeaderText>
