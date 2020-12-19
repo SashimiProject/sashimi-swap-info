@@ -54,7 +54,7 @@ export function getTimeframe(timeWindow) {
 }
 
 // todo: weth address
-const WETH = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
+const WETH = '0xa050886815cfc52a24b9c4ad044ca199990b6690';
 
 // todo: sashimi link
 const EXCHANGE_PREFIX = 'https://sashimi.cool/app';

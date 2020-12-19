@@ -26,9 +26,9 @@ function formatPercent(rawPercent) {
 // TODO: sashimi pair address
 export default function UniPrice() {
   // todo: 修改稳定币与WETH pair的地址, 注意pair中token的顺序，注意小写
-  const daiPair = usePairData('0x51214310ac356b26df2a9caf3895398e533c4fa9')
-  const usdcPair = usePairData('0x64a9d29305b9847ceee21558d3ce1f8e85ee4496')
-  const usdtPair = usePairData('0x490ccb3c835597ff31e525262235487f9426312b')
+  const daiPair = usePairData('0x7139c30e9bcf64d0d3302b51c471f17b18c74dc7')
+  const usdcPair = usePairData('0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc')
+  const usdtPair = usePairData('0x8925b213a7deab1aadbce126c693dd96c4a2f3e6')
 
   const totalLiquidity = useMemo(() => {
     return daiPair && usdcPair && usdtPair
