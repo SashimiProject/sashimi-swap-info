@@ -26,39 +26,22 @@ function formatPercent(rawPercent) {
 // TODO: sashimi pair address
 export default function UniPrice() {
   // todo: 修改稳定币与WETH pair的地址, 注意pair中token的顺序，注意小写
-  const daiPair = usePairData('0x51214310ac356b26df2a9caf3895398e533c4fa9')
-  const usdcPair = usePairData('0x64a9d29305b9847ceee21558d3ce1f8e85ee4496')
-  const usdtPair = usePairData('0x490ccb3c835597ff31e525262235487f9426312b')
+  const husdPair = usePairData('0x24c9e69780e9d7205d40085fce5188c37d54b4f7')
 
   const totalLiquidity = useMemo(() => {
-    return daiPair && usdcPair && usdtPair
-      ? daiPair.trackedReserveUSD + usdcPair.trackedReserveUSD + usdtPair.trackedReserveUSD
+    return husdPair
+      ? husdPair.trackedReserveUSD
       : 0
-  }, [daiPair, usdcPair, usdtPair])
+  }, [husdPair])
 
-  const daiPerEth = daiPair ? parseFloat(daiPair.token0Price).toFixed(2) : '-'
-  const usdcPerEth = usdcPair ? parseFloat(usdcPair.token0Price).toFixed(2) : '-'
-  const usdtPerEth = usdtPair ? parseFloat(usdtPair.token1Price).toFixed(2) : '-'
-
+  const husdPerEth = husdPair ? parseFloat(husdPair.token0Price).toFixed(2) : '-'
   return (
     <PriceCard>
       <AutoColumn gap="10px">
         <RowFixed>
-          <TYPE.main>DAI/ETH: {formattedNum(daiPerEth, true)}</TYPE.main>
+          <TYPE.main>HUSD/HT: {formattedNum(husdPerEth, true)}</TYPE.main>
           <TYPE.light style={{ marginLeft: '10px' }}>
-            {daiPair && totalLiquidity ? formatPercent(daiPair.trackedReserveUSD / totalLiquidity) : '-'}
-          </TYPE.light>
-        </RowFixed>
-        <RowFixed>
-          <TYPE.main>USDC/ETH: {formattedNum(usdcPerEth, true)}</TYPE.main>
-          <TYPE.light style={{ marginLeft: '10px' }}>
-            {usdcPair && totalLiquidity ? formatPercent(usdcPair.trackedReserveUSD / totalLiquidity) : '-'}
-          </TYPE.light>
-        </RowFixed>
-        <RowFixed>
-          <TYPE.main>USDT/ETH: {formattedNum(usdtPerEth, true)}</TYPE.main>
-          <TYPE.light style={{ marginLeft: '10px' }}>
-            {usdtPair && totalLiquidity ? formatPercent(usdtPair.trackedReserveUSD / totalLiquidity) : '-'}
+            {husdPair && totalLiquidity ? formatPercent(husdPair.trackedReserveUSD / totalLiquidity) : '-'}
           </TYPE.light>
         </RowFixed>
       </AutoColumn>

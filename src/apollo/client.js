@@ -5,7 +5,7 @@ import { HttpLink } from 'apollo-link-http'
 // TODO: sashimi subgraph
 export const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://api.thegraph.com/subgraphs/name/sashimiproject/sashimi'
+    uri: 'https://heco-graph.sashimi.cool/subgraphs/name/sashimi/heco'
   }),
   cache: new InMemoryCache(),
   shouldBatch: true
@@ -13,7 +13,7 @@ export const client = new ApolloClient({
 
 export const healthClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://api.thegraph.com/index-node/graphql'
+    uri: 'https://heco-graph.sashimi.cool/index-node/graphql'
   }),
   cache: new InMemoryCache(),
   shouldBatch: true
@@ -31,7 +31,7 @@ export const blockClient = new ApolloClient({
   // todo: 更改为kovan或者主网链接
   link: new HttpLink({
     // 主网链接
-    uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
+    uri: 'https://heco-graph.sashimi.cool/subgraphs/name/blocklytics/ethereum-blocks'
     // kovan链接
     // uri: 'https://api.thegraph.com/subgraphs/name/blocklytics/kovan-blocks'
   }),

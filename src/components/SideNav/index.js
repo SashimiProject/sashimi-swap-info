@@ -166,8 +166,8 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://sashimi.cool/farms" target="_blank">
-                sashimi.cool
+              <Link href="https://heco.sashimi.cool/farms" target="_blank">
+                heco.sashimi.cool
               </Link>
             </HeaderText>
             {/*<HeaderText>*/}
@@ -175,11 +175,6 @@ function SideNav({ history }) {
             {/*    Docs*/}
             {/*  </Link>*/}
             {/*</HeaderText>*/}
-            <HeaderText>
-              <Link href="https://snapshot.sashimi.cool/" target="_blank">
-                Proposal
-              </Link>
-            </HeaderText>
             <HeaderText>
               <Link href="https://t.me/joinchat/KABj-Bz6CVzyi23HK2rjzA" target="_blank">
                 Telegram

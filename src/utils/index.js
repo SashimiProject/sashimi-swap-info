@@ -54,10 +54,10 @@ export function getTimeframe(timeWindow) {
 }
 
 // todo: weth address
-const WETH = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
+export const WETH = '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f';
 
 // todo: sashimi link
-const EXCHANGE_PREFIX = 'https://sashimi.cool/app';
+const EXCHANGE_PREFIX = 'https://heco.sashimi.cool/app';
 
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {

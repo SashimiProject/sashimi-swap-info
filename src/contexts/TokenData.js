@@ -21,7 +21,7 @@ import {
   getBlockFromTimestamp,
   isAddress,
   getBlocksFromTimestamps,
-  splitQuery
+  splitQuery, WETH
 } from '../utils'
 import { timeframeOptions } from '../constants'
 import { useLatestBlock } from './Application'
@@ -286,9 +286,9 @@ const getTopTokens = async (ethPrice, ethPriceOld) => {
             data.oneDayTxns = data.txCount
           }
 
-          if (data.id === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2') {
-            data.name = 'Ether (Wrapped)'
-            data.symbol = 'ETH'
+          if (data.id === WETH) {
+            data.name = 'HT (Wrapped)'
+            data.symbol = 'HT'
           }
           return data
         })
@@ -408,9 +408,9 @@ const getTokenData = async (address, ethPrice, ethPriceOld) => {
     }
 
     // fix for WETH
-    if (data.id === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2') {
-      data.name = 'ETH (Wrapped)'
-      data.symbol = 'ETH'
+    if (data.id === WETH) {
+      data.name = 'HT (Wrapped)'
+      data.symbol = 'HT'
     }
   } catch (e) {
     console.log(e)
