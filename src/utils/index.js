@@ -65,14 +65,14 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
       `${EXCHANGE_PREFIX}/#` +
       (remove ? `remove` : `add`) +
         // wrapped eth address
-      `/${token0Address === WETH ? 'ETH' : token0Address}/${'ETH'}`
+      `/${token0Address === WETH ? 'HT' : token0Address}/${'HT'}`
     )
   } else {
     return (
       `${EXCHANGE_PREFIX}/#` +
       (remove ? `remove` : `add`) +
-      `/${token0Address === WETH ? 'ETH' : token0Address}/${
-        token1Address === WETH ? 'ETH' : token1Address
+      `/${token0Address === WETH ? 'HT' : token0Address}/${
+        token1Address === WETH ? 'HT' : token1Address
       }`
     )
   }
@@ -84,8 +84,8 @@ export function getSwapLink(token0Address, token1Address = null) {
     return `${EXCHANGE_PREFIX}/#swap?inputCurrency=${token0Address}`
   } else {
     return `${EXCHANGE_PREFIX}/#swap?inputCurrency=${
-      token0Address === WETH ? 'ETH' : token0Address
-    }&outputCurrency=${token1Address === WETH ? 'ETH' : token1Address}`
+      token0Address === WETH ? 'HT' : token0Address
+    }&outputCurrency=${token1Address === WETH ? 'HT' : token1Address}`
   }
 }
 

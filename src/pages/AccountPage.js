@@ -204,11 +204,11 @@ function AccountPage({ account }) {
                 <Flyout>
                   <AutoColumn gap="0px">
                     {positions?.map((p, i) => {
-                      if (p.pair.token1.symbol === 'WETH') {
-                        p.pair.token1.symbol = 'ETH'
+                      if (p.pair.token1.symbol === 'WHT') {
+                        p.pair.token1.symbol = 'HT'
                       }
-                      if (p.pair.token0.symbol === 'WETH') {
-                        p.pair.token0.symbol = 'ETH'
+                      if (p.pair.token0.symbol === 'WHT') {
+                        p.pair.token0.symbol = 'HT'
                       }
                       return (
                         p.pair.id !== activePosition?.pair.id && (
