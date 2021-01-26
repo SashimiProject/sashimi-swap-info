@@ -34,4 +34,4 @@ export const PAIR_BLACKLIST = ['0xb6a741f37d6e455ebcc9f17e2c16d0586c3f57a5']
 export const FEE_WARNING_TOKENS = ['0xd46ba6d942050d489dbd938a2c909a5d5039a161']
 
 // todo: ether scan prefix
-export const ETHER_SCAN_PREFIX = 'https://etherscan.io';
+export const ETHER_SCAN_PREFIX = 'https://scan.hecochain.com';
