@@ -464,7 +464,7 @@ function PairPage({ pairAddress, history }) {
                   </Column>
                   <ButtonLight color={backgroundColor}>
                     <Link color={backgroundColor} external href={`${ETHER_SCAN_PREFIX}/address/${pairAddress}`}>
-                      View on Etherscan ↗
+                      View on HecoScan ↗
                     </Link>
                   </ButtonLight>
                 </TokenDetailsLayout>
