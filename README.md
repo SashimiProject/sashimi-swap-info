@@ -5,7 +5,7 @@
 
 Transaction and liquidity pool stats for [Uniswap](https://uniswap.org).
 
-Check it out live: [https://uniswap.info](https://uniswap.info).
+Check it out live: [https://uniswap.info](https://sashimiswap.info).
 
 ### To Start Development
 
