@@ -24,7 +24,7 @@ import {
   getTimestampsForChanges,
   splitQuery, WETH
 } from '../utils'
-import { timeframeOptions } from '../constants'
+import { NATIVE_TOKEN_SYMBOL, timeframeOptions } from '../constants'
 import { useLatestBlock } from './Application'
 
 const UPDATE = 'UPDATE'
@@ -285,12 +285,12 @@ function parseData(data, oneDayData, twoDayData, oneWeekData, ethPrice, oneDayBl
     data.oneWeekVolumeUSD = parseFloat(data.volumeUSD)
   }
   if (data?.token0?.id === WETH) {
-    data.token0.name = 'HT (Wrapped)'
-    data.token0.symbol = 'HT'
+    data.token0.name = `${NATIVE_TOKEN_SYMBOL} (Wrapped)`
+    data.token0.symbol = NATIVE_TOKEN_SYMBOL
   }
   if (data?.token1?.id === WETH) {
-    data.token1.name = 'HT (Wrapped)'
-    data.token1.symbol = 'HT'
+    data.token1.name = `${NATIVE_TOKEN_SYMBOL} (Wrapped)`
+    data.token1.symbol = NATIVE_TOKEN_SYMBOL
   }
   return data
 }

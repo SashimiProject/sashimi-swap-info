@@ -23,7 +23,7 @@ import {
   getBlocksFromTimestamps,
   splitQuery, WETH
 } from '../utils'
-import { timeframeOptions } from '../constants'
+import { NATIVE_TOKEN_SYMBOL, timeframeOptions } from '../constants'
 import { useLatestBlock } from './Application'
 
 const UPDATE = 'UPDATE'
@@ -287,8 +287,8 @@ const getTopTokens = async (ethPrice, ethPriceOld) => {
           }
 
           if (data.id === WETH) {
-            data.name = 'HT (Wrapped)'
-            data.symbol = 'HT'
+            data.name = `${NATIVE_TOKEN_SYMBOL} (Wrapped)`
+            data.symbol = NATIVE_TOKEN_SYMBOL
           }
           return data
         })
@@ -409,8 +409,8 @@ const getTokenData = async (address, ethPrice, ethPriceOld) => {
 
     // fix for WETH
     if (data.id === WETH) {
-      data.name = 'HT (Wrapped)'
-      data.symbol = 'HT'
+      data.name = `${NATIVE_TOKEN_SYMBOL} (Wrapped)`
+      data.symbol = NATIVE_TOKEN_SYMBOL
     }
   } catch (e) {
     console.log(e)

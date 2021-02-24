@@ -15,7 +15,7 @@ import { Divider, EmptyCard } from '..'
 import DropdownSelect from '../DropdownSelect'
 import FormattedName from '../FormattedName'
 import { TYPE } from '../../Theme'
-import { ETHER_SCAN_PREFIX } from '../../constants'
+import { ETHER_SCAN_PREFIX, NATIVE_TOKEN_SYMBOL, WRAPPED_NATIVE_TOKEN_SYMBOL } from '../../constants'
 
 dayjs.extend(utc)
 
@@ -280,12 +280,12 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
   const below780 = useMedia('(max-width: 780px)')
 
   const ListItem = ({ item }) => {
-    if (item.token0Symbol === 'WHT') {
-      item.token0Symbol = 'HT'
+    if (item.token0Symbol === WRAPPED_NATIVE_TOKEN_SYMBOL) {
+      item.token0Symbol = NATIVE_TOKEN_SYMBOL
     }
 
-    if (item.token1Symbol === 'WHT') {
-      item.token1Symbol = 'HT'
+    if (item.token1Symbol === WRAPPED_NATIVE_TOKEN_SYMBOL) {
+      item.token1Symbol = NATIVE_TOKEN_SYMBOL
     }
 
     return (
@@ -296,7 +296,7 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
           </Link>
         </DataText>
         <DataText area="value">
-          {currency === 'HT' ? 'Ξ ' + formattedNum(item.valueETH) : formattedNum(item.amountUSD, true)}
+          {currency === NATIVE_TOKEN_SYMBOL ? 'Ξ ' + formattedNum(item.valueETH) : formattedNum(item.amountUSD, true)}
         </DataText>
         {!below780 && (
           <>

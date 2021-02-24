@@ -11,7 +11,7 @@ import { useAllPairData, usePairData } from '../../contexts/PairData'
 import DoubleTokenLogo from '../DoubleLogo'
 import { useMedia } from 'react-use'
 import { useAllPairsInUniswap, useAllTokensInUniswap } from '../../contexts/GlobalData'
-import { OVERVIEW_TOKEN_BLACKLIST, PAIR_BLACKLIST } from '../../constants'
+import { NATIVE_TOKEN_SYMBOL, OVERVIEW_TOKEN_BLACKLIST, PAIR_BLACKLIST } from '../../constants'
 
 import { transparentize } from 'polished'
 import { client } from '../../apollo/client'
@@ -461,12 +461,12 @@ export const Search = ({ small = false }) => {
           {filteredPairList &&
             filteredPairList.slice(0, pairsShown).map(pair => {
               if (pair?.token0?.id === WETH) {
-                pair.token0.name = 'HT (Wrapped)'
-                pair.token0.symbol = 'HT'
+                pair.token0.name = `${NATIVE_TOKEN_SYMBOL} (Wrapped)`
+                pair.token0.symbol = NATIVE_TOKEN_SYMBOL
               }
               if (pair?.token1.id === WETH) {
-                pair.token1.name = 'HT (Wrapped)'
-                pair.token1.symbol = 'HT'
+                pair.token1.name = `${NATIVE_TOKEN_SYMBOL} (Wrapped)`
+                pair.token1.symbol = NATIVE_TOKEN_SYMBOL
               }
               return (
                 <BasicLink to={'/pair/' + pair.id} key={pair.id} onClick={onDismiss}>

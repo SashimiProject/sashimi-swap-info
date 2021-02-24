@@ -7,6 +7,7 @@ import { formattedNum, localNumber } from '../../utils'
 
 import UniPrice from '../UniPrice'
 import { TYPE } from '../../Theme'
+import { NATIVE_TOKEN_SYMBOL } from '../../constants'
 
 const Header = styled.div`
   width: 100%;
@@ -47,7 +48,7 @@ export default function GlobalStats() {
               }}
               style={{ position: 'relative' }}
             >
-              HT Price: <Medium>{formattedEthPrice}</Medium>
+              {NATIVE_TOKEN_SYMBOL} Price: <Medium>{formattedEthPrice}</Medium>
               {showPriceCard && <UniPrice />}
             </TYPE.main>
           )}

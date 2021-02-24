@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useMemo, useCallback, useState, useEffect } from 'react'
-import { timeframeOptions, SUPPORTED_LIST_URLS__NO_ENS } from '../constants'
+import { timeframeOptions, SUPPORTED_LIST_URLS__NO_ENS, NATIVE_TOKEN_SYMBOL } from '../constants'
 import Web3 from 'web3'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -189,10 +189,10 @@ export function useLatestBlock() {
 export function useCurrentCurrency() {
   const [state, { update }] = useApplicationContext()
   const toggleCurrency = useCallback(() => {
-    if (state.currency === 'HT') {
+    if (state.currency === NATIVE_TOKEN_SYMBOL) {
       update('USD')
     } else {
-      update('HT')
+      update(NATIVE_TOKEN_SYMBOL)
     }
   }, [state, update])
   return [state[CURRENCY], toggleCurrency]

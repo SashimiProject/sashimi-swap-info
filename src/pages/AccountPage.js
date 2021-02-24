@@ -15,7 +15,7 @@ import { PageWrapper, ContentWrapper, StyledIcon } from '../components'
 import DoubleTokenLogo from '../components/DoubleLogo'
 import { Bookmark, Activity } from 'react-feather'
 import Link from '../components/Link'
-import { ETHER_SCAN_PREFIX, FEE_WARNING_TOKENS } from '../constants'
+import { ETHER_SCAN_PREFIX, FEE_WARNING_TOKENS, NATIVE_TOKEN_SYMBOL, WRAPPED_NATIVE_TOKEN_SYMBOL } from '../constants'
 import { BasicLink } from '../components/Link'
 import { useMedia } from 'react-use'
 import Search from '../components/Search'
@@ -204,11 +204,11 @@ function AccountPage({ account }) {
                 <Flyout>
                   <AutoColumn gap="0px">
                     {positions?.map((p, i) => {
-                      if (p.pair.token1.symbol === 'WHT') {
-                        p.pair.token1.symbol = 'HT'
+                      if (p.pair.token1.symbol === WRAPPED_NATIVE_TOKEN_SYMBOL) {
+                        p.pair.token1.symbol = NATIVE_TOKEN_SYMBOL
                       }
-                      if (p.pair.token0.symbol === 'WHT') {
-                        p.pair.token0.symbol = 'HT'
+                      if (p.pair.token0.symbol === WRAPPED_NATIVE_TOKEN_SYMBOL) {
+                        p.pair.token0.symbol = NATIVE_TOKEN_SYMBOL
                       }
                       return (
                         p.pair.id !== activePosition?.pair.id && (

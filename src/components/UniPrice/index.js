@@ -6,6 +6,7 @@ import { RowFixed } from '../Row'
 import { TYPE } from '../../Theme'
 import { usePairData } from '../../contexts/PairData'
 import { formattedNum } from '../../utils'
+import { NATIVE_TOKEN_SYMBOL } from '../../constants'
 
 const PriceCard = styled(Panel)`
   position: absolute;
@@ -26,22 +27,23 @@ function formatPercent(rawPercent) {
 // TODO: sashimi pair address
 export default function UniPrice() {
   // todo: 修改稳定币与WETH pair的地址, 注意pair中token的顺序，注意小写
-  const husdPair = usePairData('0x24c9e69780e9d7205d40085fce5188c37d54b4f7')
+  const stablePair = usePairData(process.env.REACT_APP_STABLE_NATIVE_PAIR_ADDRESS)
 
   const totalLiquidity = useMemo(() => {
-    return husdPair
-      ? husdPair.trackedReserveUSD
+    return stablePair
+      ? stablePair.trackedReserveUSD
       : 0
-  }, [husdPair])
+  }, [stablePair])
+  console.log(stablePair);
 
-  const husdPerEth = husdPair ? parseFloat(husdPair.token0Price).toFixed(2) : '-'
+  const usdPerEth = stablePair ? parseFloat(stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}Price`]).toFixed(2) : '-'
   return (
     <PriceCard>
       <AutoColumn gap="10px">
         <RowFixed>
-          <TYPE.main>HUSD/HT: {formattedNum(husdPerEth, true)}</TYPE.main>
+          <TYPE.main>{stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}`].symbol}/{NATIVE_TOKEN_SYMBOL}: {formattedNum(usdPerEth, true)}</TYPE.main>
           <TYPE.light style={{ marginLeft: '10px' }}>
-            {husdPair && totalLiquidity ? formatPercent(husdPair.trackedReserveUSD / totalLiquidity) : '-'}
+            {stablePair && totalLiquidity ? formatPercent(stablePair.trackedReserveUSD / totalLiquidity) : '-'}
           </TYPE.light>
         </RowFixed>
       </AutoColumn>

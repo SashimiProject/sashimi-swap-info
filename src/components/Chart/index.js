@@ -3,6 +3,7 @@ import { Area, XAxis, YAxis, ResponsiveContainer, Bar, BarChart, CartesianGrid, 
 import styled from 'styled-components'
 import { useMedia } from 'react-use'
 import { toK, toNiceDate, toNiceDateYear } from '../../utils'
+import { NATIVE_TOKEN_SYMBOL } from '../../constants'
 
 const ChartWrapper = styled.div`
   padding-top: 1em;
@@ -63,8 +64,8 @@ const Chart = ({ data, chartOption, currencyUnit, symbol }) => {
               strokeWidth={2}
               dot={false}
               type="monotone"
-              name={currencyUnit === 'HT' ? 'Price (HT/' + symbol + ')' : 'Price (USD/' + symbol + ')'}
-              dataKey={currencyUnit === 'HT' ? 'ethPerToken' : 'tokenPriceUSD'}
+              name={currencyUnit === NATIVE_TOKEN_SYMBOL ? `Price (${NATIVE_TOKEN_SYMBOL}/${symbol})` : `Price (USD/${symbol})`}
+              dataKey={currencyUnit === NATIVE_TOKEN_SYMBOL ? 'ethPerToken' : 'tokenPriceUSD'}
               yAxisId={2}
               fill="var(--c-token)"
               opacity={'0.4'}
