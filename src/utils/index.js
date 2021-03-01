@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { ethers } from 'ethers'
 import utc from 'dayjs/plugin/utc'
 import { client, blockClient } from '../apollo/client'
-import { GET_BLOCK, GET_BLOCKS, SHARE_VALUE } from '../apollo/queries'
+import { GET_BLOCK, GET_BLOCKS, GET_LATEST_SYNCED_TIMESTAMP, SHARE_VALUE } from '../apollo/queries'
 import { Text } from 'rebass'
 import _Decimal from 'decimal.js-light'
 import toFormat from 'toformat'
@@ -108,8 +108,8 @@ export const toWeeklyDate = date => {
   return dayjs.utc(wkStart).format('MMM DD') + ' - ' + dayjs.utc(wkEnd).format('MMM DD')
 }
 
-export function getTimestampsForChanges() {
-  const utcCurrentTime = dayjs()
+export function getTimestampsForChanges(timestamp = 0) {
+  const utcCurrentTime = dayjs(timestamp === 0 ? undefined : timestamp)
   const t1 = utcCurrentTime
     .subtract(1, 'day')
     .startOf('minute')
@@ -169,6 +169,18 @@ export async function getBlockFromTimestamp(timestamp) {
     fetchPolicy: 'cache-first'
   })
   return result?.data?.blocks?.[0]?.number
+}
+
+/**
+ * @notice Fetches latest block timestamp
+ * @param {Int} timestamp in seconds
+ */
+export async function getLatestSyncedTime() {
+  let result = await blockClient.query({
+    query: GET_LATEST_SYNCED_TIMESTAMP,
+    fetchPolicy: 'cache-first'
+  })
+  return result?.data?.blocks?.[0]?.timestamp
 }
 
 /**

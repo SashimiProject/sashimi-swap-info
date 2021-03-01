@@ -22,7 +22,7 @@ import {
   isAddress,
   getBlocksFromTimestamps,
   getTimestampsForChanges,
-  splitQuery, WETH
+  splitQuery, WETH, getLatestSyncedTime
 } from '../utils'
 import { timeframeOptions } from '../constants'
 import { useLatestBlock } from './Application'
@@ -177,7 +177,8 @@ export default function Provider({ children }) {
 }
 
 async function getBulkPairData(pairList, ethPrice) {
-  const [t1, t2, tWeek] = getTimestampsForChanges()
+  const latestTime = await getLatestSyncedTime();
+  const [t1, t2, tWeek] = getTimestampsForChanges(latestTime * 1000);
   let [{ number: b1 }, { number: b2 }, { number: bWeek }] = await getBlocksFromTimestamps([t1, t2, tWeek])
 
   try {

@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { FACTORY_ADDRESS, BUNDLE_ID } from '../constants'
+import { BUNDLE_ID, FACTORY_ADDRESS } from '../constants'
 
 // TODO: check sashimi
 export const SUBGRAPH_HEALTH = gql`
@@ -60,6 +60,20 @@ export const GET_BLOCK = gql`
       timestamp
     }
   }
+`
+
+export const GET_LATEST_SYNCED_TIMESTAMP = gql`
+    query blocks {
+        blocks(
+            first: 1
+            orderBy: timestamp
+            orderDirection: desc
+        ) {
+            id
+            number
+            timestamp
+        }
+    }
 `
 
 export const GET_BLOCKS = timestamps => {

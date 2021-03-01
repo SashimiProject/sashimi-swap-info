@@ -21,7 +21,7 @@ import {
   getBlockFromTimestamp,
   isAddress,
   getBlocksFromTimestamps,
-  splitQuery, WETH
+  splitQuery, WETH, getLatestSyncedTime
 } from '../utils'
 import { timeframeOptions } from '../constants'
 import { useLatestBlock } from './Application'
@@ -191,7 +191,8 @@ export default function Provider({ children }) {
 }
 
 const getTopTokens = async (ethPrice, ethPriceOld) => {
-  const utcCurrentTime = dayjs()
+  const latestTime = await getLatestSyncedTime();
+  const utcCurrentTime = dayjs(latestTime * 1000);
   const utcOneDayBack = utcCurrentTime.subtract(1, 'day').unix()
   const utcTwoDaysBack = utcCurrentTime.subtract(2, 'day').unix()
   let oneDayBlock = await getBlockFromTimestamp(utcOneDayBack)
