@@ -14,7 +14,7 @@ export const timeframeOptions = {
 // token list urls to fetch tokens from - use for warnings on tokens and pairs
 export const SUPPORTED_LIST_URLS__NO_ENS = [
   // todo: token list
-  'https://raw.githubusercontent.com/SashimiProject/token-list/master/sashimiswap.tokenlist.json'
+  'https://raw.githubusercontent.com/SashimiProject/token-list/master/sashimiswap-hb.tokenlist.json'
 ]
 
 // hide from overview list
