@@ -1,5 +1,5 @@
 // todo: factory address
-export const FACTORY_ADDRESS = '0xc28e27870558cf22add83540d2126da2e4b464c2'
+export const FACTORY_ADDRESS = process.env.REACT_APP_SWAP_FACTORY_ADDRESS;
 
 export const BUNDLE_ID = '1'
 
@@ -14,7 +14,7 @@ export const timeframeOptions = {
 // token list urls to fetch tokens from - use for warnings on tokens and pairs
 export const SUPPORTED_LIST_URLS__NO_ENS = [
   // todo: token list
-  'https://raw.githubusercontent.com/SashimiProject/token-list/master/sashimiswap.tokenlist.json'
+  'https://raw.githubusercontent.com/SashimiProject/token-list/master/sashimiswap-bsc.tokenlist.json'
 ]
 
 // hide from overview list

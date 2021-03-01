@@ -166,8 +166,8 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://heco.sashimi.cool/farms" target="_blank">
-                heco.sashimi.cool
+              <Link href="https://bsc.sashimi.cool/farms" target="_blank">
+                bsc.sashimi.cool
               </Link>
             </HeaderText>
             {/*<HeaderText>*/}

@@ -375,7 +375,7 @@ function TokenPage({ address, history }) {
                   </Column>
                   <ButtonLight color={backgroundColor}>
                     <Link color={backgroundColor} external href={`${ETHER_SCAN_PREFIX}/address/${address}`}>
-                      View on HecoScan ↗
+                      View on BscScan ↗
                     </Link>
                   </ButtonLight>
                 </TokenDetailsLayout>

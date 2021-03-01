@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { isAddress, WETH } from '../../utils/index.js'
 import PlaceHolder from '../../assets/placeholder.png'
-import EthereumLogo from '../../assets/eth.png'
 
 const BAD_IMAGES = {}
 
@@ -59,7 +58,7 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
     return (
       <StyledEthereumLogo size={size} {...rest}>
         <img
-          src={EthereumLogo}
+          src={process.env.REACT_APP_NATIVE_TOKEN_LOGO_URL}
           style={{ boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.075)', borderRadius: '24px' }}
           alt=""
         />

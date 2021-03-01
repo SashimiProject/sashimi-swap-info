@@ -31,7 +31,7 @@ export const blockClient = new ApolloClient({
   // todo: 更改为kovan或者主网链接
   link: new HttpLink({
     // 主网链接
-    uri: `${process.env.REACT_APP_GRAPHQL_URL_PREFIX}/subgraphs/name/blocklytics/ethereum-blocks`
+    uri: `https://api.bscgraph.org/subgraphs/name/bsc-blocks`
   }),
   cache: new InMemoryCache()
 })

@@ -54,7 +54,7 @@ export function getTimeframe(timeWindow) {
 }
 
 // todo: weth address
-export const WETH = '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f';
+export const WETH = process.env.REACT_APP_WRAPPED_NATIVE_ADDRESS;
 
 // todo: sashimi link
 const EXCHANGE_PREFIX = `${process.env.REACT_APP_HOMEPAGE_URL}/app`;
