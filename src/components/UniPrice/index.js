@@ -34,7 +34,6 @@ export default function UniPrice() {
       ? stablePair.trackedReserveUSD
       : 0
   }, [stablePair])
-  console.log(stablePair);
 
   const usdPerEth = stablePair ? parseFloat(stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}Price`]).toFixed(2) : '-'
   return (

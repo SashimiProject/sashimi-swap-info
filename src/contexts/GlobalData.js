@@ -305,7 +305,6 @@ async function getGlobalData(ethPrice, oldEthPrice) {
   } catch (e) {
     console.log(e)
   }
-  console.log('getGlobalData', data);
   return data
 }
 
@@ -555,7 +554,6 @@ export function useGlobalData() {
       fetchData()
     }
   }, [ethPrice, oldEthPrice, update, data, updateAllPairsInUniswap, updateAllTokensInUniswap])
-  console.log('data', data);
   return data || {}
 }
 
