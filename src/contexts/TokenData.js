@@ -191,8 +191,8 @@ export default function Provider({ children }) {
 }
 
 const getTopTokens = async (ethPrice, ethPriceOld) => {
-  const latestTime = await getLatestSyncedTime();
-  const utcCurrentTime = dayjs(latestTime * 1000);
+  // const latestTime = await getLatestSyncedTime();
+  const utcCurrentTime = dayjs();
   const utcOneDayBack = utcCurrentTime.subtract(1, 'day').unix()
   const utcTwoDaysBack = utcCurrentTime.subtract(2, 'day').unix()
   let oneDayBlock = await getBlockFromTimestamp(utcOneDayBack)
