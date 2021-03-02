@@ -166,8 +166,8 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://bsc.sashimi.cool/farms" target="_blank">
-                bsc.sashimi.cool
+              <Link href={`https://${process.env.REACT_APP_HOMEPAGE_URL}/farms`} target="_blank">
+                {process.env.REACT_APP_HOMEPAGE_URL}
               </Link>
             </HeaderText>
             {/*<HeaderText>*/}

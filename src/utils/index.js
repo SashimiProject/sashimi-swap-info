@@ -57,7 +57,7 @@ export function getTimeframe(timeWindow) {
 export const WETH = process.env.REACT_APP_WRAPPED_NATIVE_ADDRESS;
 
 // todo: sashimi link
-const EXCHANGE_PREFIX = `${process.env.REACT_APP_HOMEPAGE_URL}/app`;
+const EXCHANGE_PREFIX = `https://${process.env.REACT_APP_HOMEPAGE_URL}/app`;
 
 const nativeTokenSymbol = process.env.REACT_APP_NATIVE_TOKEN_SYMBOL;
 

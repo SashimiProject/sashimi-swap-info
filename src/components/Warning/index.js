@@ -39,20 +39,20 @@ export default function Warning({ type, show, setShow, address }) {
   const textContent = below800 ? (
     <div>
       <Text fontWeight={500} lineHeight={'145.23%'} mt={'10px'}>
-        Anyone can create and name any ERC20 token on Bsc, including creating fake versions of existing tokens and
+        Anyone can create and name any {process.env.REACT_APP_TOKEN_PROTOCOL_NAME} token on {process.env.REACT_APP_CHAIN_NAME}, including creating fake versions of existing tokens and
         tokens that claim to represent projects that do not have a token.
       </Text>
       <Text fontWeight={500} lineHeight={'145.23%'} mt={'10px'}>
-        Similar to BscScan, this site automatically tracks analytics for all ERC20 tokens independent of token
-        integrity. Please do your own research before interacting with any ERC20 token.
+        Similar to {process.env.REACT_APP_CHAIN_SCANNER_NAME}, this site automatically tracks analytics for all {process.env.REACT_APP_TOKEN_PROTOCOL_NAME} tokens independent of token
+        integrity. Please do your own research before interacting with any {process.env.REACT_APP_TOKEN_PROTOCOL_NAME} token.
       </Text>
     </div>
   ) : (
     <Text fontWeight={500} lineHeight={'145.23%'} mt={'10px'}>
-      Anyone can create and name any ERC20 token on Bsc, including creating fake versions of existing tokens and
-      tokens that claim to represent projects that do not have a token. Similar to BscScan, this site automatically
-      tracks analytics for all ERC20 tokens independent of token integrity. Please do your own research before
-      interacting with any ERC20 token.
+      Anyone can create and name any {process.env.REACT_APP_TOKEN_PROTOCOL_NAME} token on {process.env.REACT_APP_CHAIN_NAME}, including creating fake versions of existing tokens and
+      tokens that claim to represent projects that do not have a token. Similar to {process.env.REACT_APP_CHAIN_SCANNER_NAME}, this site automatically
+      tracks analytics for all {process.env.REACT_APP_TOKEN_PROTOCOL_NAME} tokens independent of token integrity. Please do your own research before
+      interacting with any {process.env.REACT_APP_TOKEN_PROTOCOL_NAME} token.
     </Text>
   )
 
@@ -76,7 +76,7 @@ export default function Warning({ type, show, setShow, address }) {
                 href={`${ETHER_SCAN_PREFIX}/address/${address}`}
                 target="_blank"
               >
-                View {type === 'token' ? 'token' : 'pair'} contract on BscScan
+                View {type === 'token' ? 'token' : 'pair'} contract on {process.env.REACT_APP_CHAIN_SCANNER_NAME}
               </Link>
             </Hover>
             <RowBetween style={{ marginTop: '20px' }}>
@@ -96,7 +96,7 @@ export default function Warning({ type, show, setShow, address }) {
                 href={`${ETHER_SCAN_PREFIX}/address/${address}`}
                 target="_blank"
               >
-                View {type === 'token' ? 'token' : 'pair'} contract on BscScan
+                View {type === 'token' ? 'token' : 'pair'} contract on {process.env.REACT_APP_CHAIN_SCANNER_NAME}
               </Link>
             </Hover>
             <ButtonDark color={'#f82d3a'} style={{ minWidth: '140px' }} onClick={() => setShow(false)}>

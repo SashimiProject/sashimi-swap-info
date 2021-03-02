@@ -14,7 +14,7 @@ export const timeframeOptions = {
 // token list urls to fetch tokens from - use for warnings on tokens and pairs
 export const SUPPORTED_LIST_URLS__NO_ENS = [
   // todo: token list
-  'https://raw.githubusercontent.com/SashimiProject/token-list/master/sashimiswap-bsc.tokenlist.json'
+  process.env.REACT_APP_DEFAULT_TOKEN_LIST
 ]
 
 // hide from overview list
