@@ -1,5 +1,5 @@
 // todo: factory address
-export const FACTORY_ADDRESS = '0xc28e27870558cf22add83540d2126da2e4b464c2'
+export const FACTORY_ADDRESS = process.env.REACT_APP_SWAP_FACTORY_ADDRESS;
 
 export const BUNDLE_ID = '1'
 
@@ -14,7 +14,7 @@ export const timeframeOptions = {
 // token list urls to fetch tokens from - use for warnings on tokens and pairs
 export const SUPPORTED_LIST_URLS__NO_ENS = [
   // todo: token list
-  'https://raw.githubusercontent.com/SashimiProject/token-list/master/sashimiswap-hb.tokenlist.json'
+  process.env.REACT_APP_DEFAULT_TOKEN_LIST
 ]
 
 // hide from overview list
@@ -34,4 +34,7 @@ export const PAIR_BLACKLIST = ['0xb6a741f37d6e455ebcc9f17e2c16d0586c3f57a5']
 export const FEE_WARNING_TOKENS = ['0xd46ba6d942050d489dbd938a2c909a5d5039a161']
 
 // todo: ether scan prefix
-export const ETHER_SCAN_PREFIX = 'https://hecoinfo.com';
+export const ETHER_SCAN_PREFIX = process.env.REACT_APP_SCAN_EXPLORER_URL;
+
+export const NATIVE_TOKEN_SYMBOL = process.env.REACT_APP_NATIVE_TOKEN_SYMBOL || 'ETH';
+export const WRAPPED_NATIVE_TOKEN_SYMBOL = `W${NATIVE_TOKEN_SYMBOL}`;

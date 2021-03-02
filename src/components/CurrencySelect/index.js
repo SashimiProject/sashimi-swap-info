@@ -5,6 +5,7 @@ import { useCurrentCurrency } from '../../contexts/Application'
 
 import Row from '../Row'
 import { ChevronDown as Arrow } from 'react-feather'
+import { NATIVE_TOKEN_SYMBOL } from '../../constants'
 
 const Select = styled.div`
   position: relative;
@@ -46,7 +47,7 @@ const CurrencySelect = () => {
 
   const getOther = () => {
     if (currency === 'USD') {
-      return 'HT'
+      return NATIVE_TOKEN_SYMBOL
     } else {
       return 'USD'
     }

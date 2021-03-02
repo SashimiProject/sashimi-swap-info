@@ -305,7 +305,6 @@ async function getGlobalData(ethPrice, oldEthPrice) {
   } catch (e) {
     console.log(e)
   }
-
   return data
 }
 
@@ -338,7 +337,7 @@ const getChartData = async oldestDateToFetch => {
       }
     }
 
-    if (data) {
+    if (data && data.length > 0) {
       let dayIndexSet = new Set()
       let dayIndexArray = []
       const oneDay = 24 * 60 * 60
@@ -555,7 +554,6 @@ export function useGlobalData() {
       fetchData()
     }
   }, [ethPrice, oldEthPrice, update, data, updateAllPairsInUniswap, updateAllTokensInUniswap])
-
   return data || {}
 }
 

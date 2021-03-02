@@ -464,7 +464,7 @@ function PairPage({ pairAddress, history }) {
                   </Column>
                   <ButtonLight color={backgroundColor}>
                     <Link color={backgroundColor} external href={`${ETHER_SCAN_PREFIX}/address/${pairAddress}`}>
-                      View on HecoScan ↗
+                      View on {process.env.REACT_APP_CHAIN_SCANNER_NAME} ↗
                     </Link>
                   </ButtonLight>
                 </TokenDetailsLayout>

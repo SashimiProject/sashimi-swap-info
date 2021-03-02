@@ -54,10 +54,12 @@ export function getTimeframe(timeWindow) {
 }
 
 // todo: weth address
-export const WETH = '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f';
+export const WETH = process.env.REACT_APP_WRAPPED_NATIVE_ADDRESS;
 
 // todo: sashimi link
-const EXCHANGE_PREFIX = 'https://heco.sashimi.cool/app';
+const EXCHANGE_PREFIX = `https://${process.env.REACT_APP_HOMEPAGE_URL}/app`;
+
+const nativeTokenSymbol = process.env.REACT_APP_NATIVE_TOKEN_SYMBOL;
 
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {
@@ -65,14 +67,14 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
       `${EXCHANGE_PREFIX}/#` +
       (remove ? `remove` : `add`) +
         // wrapped eth address
-      `/${token0Address === WETH ? 'HT' : token0Address}/${'HT'}`
+      `/${token0Address === WETH ? nativeTokenSymbol : token0Address}/${nativeTokenSymbol}`
     )
   } else {
     return (
       `${EXCHANGE_PREFIX}/#` +
       (remove ? `remove` : `add`) +
-      `/${token0Address === WETH ? 'HT' : token0Address}/${
-        token1Address === WETH ? 'HT' : token1Address
+      `/${token0Address === WETH ? nativeTokenSymbol : token0Address}/${
+        token1Address === WETH ? nativeTokenSymbol : token1Address
       }`
     )
   }
@@ -84,8 +86,8 @@ export function getSwapLink(token0Address, token1Address = null) {
     return `${EXCHANGE_PREFIX}/#swap?inputCurrency=${token0Address}`
   } else {
     return `${EXCHANGE_PREFIX}/#swap?inputCurrency=${
-      token0Address === WETH ? 'HT' : token0Address
-    }&outputCurrency=${token1Address === WETH ? 'HT' : token1Address}`
+      token0Address === WETH ? nativeTokenSymbol : token0Address
+    }&outputCurrency=${token1Address === WETH ? nativeTokenSymbol : token1Address}`
   }
 }
 
