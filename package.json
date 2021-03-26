@@ -79,7 +79,8 @@
     "fix:all": "yarn fix:lint && yarn fix:format",
     "check:lint": "yarn lint:base",
     "check:format": "yarn format:base --check",
-    "check:all": "yarn check:lint && yarn check:format"
+    "check:all": "yarn check:lint && yarn check:format",
+    "pkg:online": "rm -rf build* && npm run build && tar -zcvf build-online-info.tar.gz build"
   },
   "eslintConfig": {
     "extends": "react-app"

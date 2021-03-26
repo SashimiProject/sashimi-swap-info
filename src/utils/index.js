@@ -54,26 +54,26 @@ export function getTimeframe(timeWindow) {
 }
 
 // todo: weth address
-const WETH = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
+const WETH = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
 
 // todo: sashimi link
-const EXCHANGE_PREFIX = 'https://sashimi.cool/app';
+// const EXCHANGE_PREFIX = 'https://sashimi.cool/app';
+// v2
+const EXCHANGE_PREFIX = 'https://sashimi.cool/exchange'
 
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {
     return (
-      `${EXCHANGE_PREFIX}/#` +
+      `${EXCHANGE_PREFIX}/` +
       (remove ? `remove` : `add`) +
-        // wrapped eth address
+      // wrapped eth address
       `/${token0Address === WETH ? 'ETH' : token0Address}/${'ETH'}`
     )
   } else {
     return (
-      `${EXCHANGE_PREFIX}/#` +
+      `${EXCHANGE_PREFIX}/` +
       (remove ? `remove` : `add`) +
-      `/${token0Address === WETH ? 'ETH' : token0Address}/${
-        token1Address === WETH ? 'ETH' : token1Address
-      }`
+      `/${token0Address === WETH ? 'ETH' : token0Address}/${token1Address === WETH ? 'ETH' : token1Address}`
     )
   }
 }
@@ -81,11 +81,11 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
 // TODO: sashimi
 export function getSwapLink(token0Address, token1Address = null) {
   if (!token1Address) {
-    return `${EXCHANGE_PREFIX}/#swap?inputCurrency=${token0Address}`
+    return `${EXCHANGE_PREFIX}/swap/${token0Address}`
   } else {
-    return `${EXCHANGE_PREFIX}/#swap?inputCurrency=${
-      token0Address === WETH ? 'ETH' : token0Address
-    }&outputCurrency=${token1Address === WETH ? 'ETH' : token1Address}`
+    return `${EXCHANGE_PREFIX}/swap/${token0Address === WETH ? 'ETH' : token0Address}/${
+      token1Address === WETH ? 'ETH' : token1Address
+    }`
   }
 }
 
