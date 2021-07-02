@@ -686,7 +686,9 @@ export const PAIRS_HISTORICAL_BULK = (block, pairs) => {
   pairsString += ']'
   let queryString = `
   query pairs {
-    pairs(first: 200, where: {id_in: ${pairsString}}, block: {number: ${block}}, orderBy: trackedReserveETH, orderDirection: desc) {
+    pairs(first: 200, where: {id_in: ${pairsString}},${
+    block ? ` block: {number: ${block}}, ` : ''
+  }orderBy: trackedReserveETH, orderDirection: desc) {
       id
       reserveUSD
       trackedReserveETH
@@ -752,7 +754,7 @@ export const TOKENS_DYNAMIC = block => {
   const queryString = `
     ${TokenFields}
     query tokens {
-      tokens(block: {number: ${block}} first: 200, orderBy: tradeVolumeUSD, orderDirection: desc) {
+      tokens(${block ? `block: {number: ${block}} ` : ''} first: 200, orderBy: tradeVolumeUSD, orderDirection: desc) {
         ...TokenFields
       }
     }
